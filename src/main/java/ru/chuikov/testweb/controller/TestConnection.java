@@ -1,7 +1,9 @@
 package ru.chuikov.testweb.controller;
 
+import jdk.nashorn.internal.ir.debug.JSONWriter;
+import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -10,8 +12,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class TestConnection {
     @RequestMapping(value = "/test",method = RequestMethod.GET)
     @ResponseBody
-    public String tessConnection(Model model)
+    public String tessConnection(ModelMap model)
     {
-        return "OK - Connection checked";
+        JSONObject rsp=new JSONObject();
+        rsp.put("result",true);
+        return  rsp.toJSONString();
     }
 }
