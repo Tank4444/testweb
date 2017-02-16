@@ -2,6 +2,7 @@ package ru.chuikov.testweb.controller;
 
 import jdk.nashorn.internal.ir.debug.JSONWriter;
 import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,6 @@ public class TestConnection {
     {
         JSONObject rsp=new JSONObject();
         rsp.put("result",true);
-        return  rsp.toJSONString();
+        return  rsp.toJSONString().toString();
     }
 }

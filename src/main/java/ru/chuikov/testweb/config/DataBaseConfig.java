@@ -42,9 +42,9 @@ public class DataBaseConfig {
     }
 
     private Properties getHibernateProperties() {
-        Properties properties=new Properties();
-        InputStream is=getClass().getClassLoader().getResourceAsStream("hibernate.properties");
         try {
+            Properties properties=new Properties();
+            InputStream is=getClass().getClassLoader().getResourceAsStream("hibernate.properties");
             properties.load(is);
             return properties;
         } catch (IOException e) {
@@ -53,7 +53,7 @@ public class DataBaseConfig {
     }
 
     @Bean
-    public PlatformTransactionManager platformTransactionManager()
+    public PlatformTransactionManager transactionManager()
     {
         JpaTransactionManager manager=new JpaTransactionManager();
         manager.setEntityManagerFactory(entityManagerFactory().getObject());

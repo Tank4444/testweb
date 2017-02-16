@@ -11,7 +11,7 @@ public class TestClass {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment",strategy = "increment")
-    private long id;
+    private long  id;
 
     @Column(name = "title",nullable = false,length = 50)
     private String title;
@@ -20,6 +20,7 @@ public class TestClass {
     private String text;
 
     @Column(name = "data",nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
     public TestClass() {
